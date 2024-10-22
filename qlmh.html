@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab1 - Object Management</title>
+    <style>
+      body {
+        background-image: url(https://png.pngtree.com/background/20230518/original/pngtree-bakery-with-two-cases-of-pastries-picture-image_2645230.jpg);
+        background-repeat: round;
+        background-size: 100%;
+        font-family: "Times New Roman", Times, serif, sans-serif;
+      }
+      .menu {
+        margin-bottom: 20px;
+      }
+      .menu a {
+        margin-right: 25px;
+        text-decoration: none;
+        color: red;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+      }
+      th,
+      td {
+        text-align: left;
+      }
+      footer {
+        background-color: darkgray;
+        padding: 25px 0;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+      }
+      header {
+        padding: 5px;
+        background-color: rgba(92, 147, 250, 0.998);
+      }
+      .container {
+        grid-auto-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: end;
+        height: 100vh;
+        justify-items: start;
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <script>
+    function gotoHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+  <body>
+    <header>
+      <button
+        onclick="gotoHome()"
+        style="
+          padding: 10px;
+          margin-top: 0px;
+          margin-right: 100%;
+          background-color: aquamarine;
+        "
+      >
+        Home
+      </button>
+      <h1 style="color: rgba(206, 216, 22, 0.797)">QUẢN LÍ TIỆM BÁNH</h1>
+
+      <!-- Menu -->
+      <div class="menu">
+        <a href="requiment.html">Requirement</a>
+        <a href="design.html">Design</a>
+        <a href="implement.html">Implement</a>
+      </div>
+    </header>
+    <div class="container">
+      <button
+        onclick="window.history.back()"
+        style="
+          padding: 20px 20px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        "
+      >
+        <-Back
+      </button>
+    </div>
+    <footer>www//tiembanhbakery.com|@FaceBook</footer>
+  </body>
+</html>

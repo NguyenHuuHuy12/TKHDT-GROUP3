@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style4.css" />
+  </head>
+  <script>
+    function gotoHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+
+      // Ẩn tất cả các tab
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Loại bỏ lớp "active" của tất cả các nút
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Hiển thị tab được chọn và thêm lớp "active" cho nút đã nhấp
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+  <body>
+    <header>
+      <button class="home-btn" onclick="gotoHome()">Home</button>
+    </header>
+    <div class="left-panel">Left</div>
+    <div class="right-panel">
+      <div class="tab">
+        <button class="tablink" onclick="openTab(event, 'Tab1')">Tab1</button>
+        <button class="tablink" onclick="openTab(event,'Tab2')">Tab2</button>
+        <button class="tablink" onclick="openTab(event, 'Tab3')">Tab3</button>
+      </div>
+      <div id="Tab1" class="content">
+        <h2>Nội dung 1</h2>
+      </div>
+
+      <div id="Tab2" class="content">
+        <h2>Nội dung 2</h2>
+      </div>
+      <div id="Tab3" class="content">
+        <h2>Nội dung 3</h2>
+      </div>
+    </div>
+  </body>
+</html>

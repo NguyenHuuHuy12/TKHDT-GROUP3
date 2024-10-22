@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url(https://static.spacet.vn/image-resized/1024x10240_max/img/blog/2024-06-18/66715f7b1e4cb177fa8d81e0.webp);
+        padding: 20px;
+        background-size: 100%;
+      }
+      .dashboard-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .filter-bar,
+      .search-bar {
+        margin-bottom: 20px;
+      }
+      select,
+      input[type="search"] {
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .exercise-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .exercise-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        position: relative;
+      }
+      .exercise-card h3 {
+        margin: 0;
+      }
+      .exercise-card .difficulty {
+        margin: 10px 0;
+      }
+      .exercise-card .status {
+        font-weight: bold;
+      }
+      .home-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        background-color: aquamarine;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .book-icon {
+        font-size: 24px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+    </style>
+  </head>
+  <script
+    src="https://kit.fontawesome.com/e6d841051d.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    function gotoHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+  <body>
+    <header>
+      <!-- Home button moved to top-left corner -->
+      <button class="home-btn" onclick="gotoHome()">Home</button>
+    </header>
+    <div class="dashboard-container">
+      <h1>Available Exercises</h1>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <label for="language">Filter by Language: </label>
+        <select id="language" onchange="filterExercises()">
+          <option value="all">All</option>
+          <option value="c">C</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+        </select>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="search" placeholder="Search exercises..." />
+      </div>
+
+      <!-- Exercise List -->
+      <div class="exercise-list" id="exercise-list">
+        <!-- C Exercises -->
+        <div class="exercise-card c">
+          <i class="fa-regular fa-book-font" style="color: #74c0fc"></i>
+          <span class="book-icon">📖</span>
+          <h3>C Exercise 1</h3>
+          <p>Short description of C exercise 1.</p>
+          <p class="difficulty">Difficulty: Easy</p>
+          <p>Time limit: 30 minutes</p>
+          <p class="status">Status: Not Started</p>
+        </div>
+        <div class="exercise-card c">
+          <span class="book-icon">📖</span>
+          <h3>C Exercise 2</h3>
+          <p>Short description of C exercise 2.</p>
+          <p class="difficulty">Difficulty: Medium</p>
+          <p>Time limit: 45 minutes</p>
+          <p class="status">Status: In Progress</p>
+        </div>
+        <div class="exercise-card c">
+          <span class="book-icon">📖</span>
+          <h3>C Exercise 3</h3>
+          <p>Short description of C exercise 3.</p>
+          <p class="difficulty">Difficulty: Hard</p>
+          <p>No time limit</p>
+          <p class="status">Status: Completed</p>
+        </div>
+
+        <!-- Python Exercises -->
+        <div class="exercise-card python">
+          <span class="book-icon">📖</span>
+          <h3>Python Exercise 1</h3>
+          <p>Short description of Python exercise 1.</p>
+          <p class="difficulty">Difficulty: Easy</p>
+          <p>Time limit: 30 minutes</p>
+          <p class="status">Status: Not Started</p>
+        </div>
+        <div class="exercise-card python">
+          <span class="book-icon">📖</span>
+          <h3>Python Exercise 2</h3>
+          <p>Short description of Python exercise 2.</p>
+          <p class="difficulty">Difficulty: Medium</p>
+          <p>Time limit: 45 minutes</p>
+          <p class="status">Status: In Progress</p>
+        </div>
+        <div class="exercise-card python">
+          <span class="book-icon">📖</span>
+          <h3>Python Exercise 3</h3>
+          <p>Short description of Python exercise 3.</p>
+          <p class="difficulty">Difficulty: Hard</p>
+          <p>No time limit</p>
+          <p class="status">Status: Completed</p>
+        </div>
+
+        <!-- Java Exercises -->
+        <div class="exercise-card java">
+          <img
+            src="https://fontawesome.com/icons/book-font?f=sharp&s=regular&sz=2xl&pc=%23FFD43B&sc=%23FFD43B"
+            alt=""
+          />
+          <h3>Java Exercise 1</h3>
+          <p>Short description of Java exercise 1.</p>
+          <p class="difficulty">Difficulty: Easy</p>
+          <p>Time limit: 30 minutes</p>
+          <p class="status">Status: Not Started</p>
+        </div>
+        <div class="exercise-card java">
+          <span class="book-icon">📖</span>
+          <h3>Java Exercise 2</h3>
+          <p>Short description of Java exercise 2.</p>
+          <p class="difficulty">Difficulty: Medium</p>
+          <p>Time limit: 45 minutes</p>
+          <p class="status">Status: In Progress</p>
+        </div>
+        <div class="exercise-card java">
+          <span class="book-icon">📖</span>
+          <h3>Java Exercise 3</h3>
+          <p>Short description of Java exercise 3.</p>
+          <p class="difficulty">Difficulty: Hard</p>
+          <p>No time limit</p>
+          <p class="status">Status: Completed</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to filter exercises based on the selected language
+      function filterExercises() {
+        const selectedLanguage = document.getElementById("language").value;
+        const allExercises = document.querySelectorAll(".exercise-card");
+
+        allExercises.forEach((exercise) => {
+          exercise.style.display = "none"; // Hide all exercises by default
+        });
+
+        if (selectedLanguage === "all") {
+          allExercises.forEach((exercise) => {
+            exercise.style.display = "block"; // Show all exercises
+          });
+        } else {
+          const selectedExercises = document.querySelectorAll(
+            `.${selectedLanguage}`
+          );
+          selectedExercises.forEach((exercise) => {
+            exercise.style.display = "block"; // Show exercises of the selected language
+          });
+        }
+      }
+
+      // Call the filterExercises function to display all exercises on initial load
+      window.onload = filterExercises;
+    </script>
+  </body>
+</html>

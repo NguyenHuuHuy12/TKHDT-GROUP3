@@ -1,0 +1,61 @@
+header {
+  text-align: center;
+  padding: 10px;
+  height: 100vh;
+  width: 100%;
+  background-color: burlywood;
+}
+body {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  background-size: 100%;
+  display: flex;
+}
+.home-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  background-color: aquamarine;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.left-panel,
+.right-panel {
+  padding: 50px;
+}
+.left-panel {
+  height: 100px;
+  width: 70%;
+  background-color: antiquewhite;
+}
+.right-panel {
+  height: 700px;
+  width: 30%;
+  background-color: aqua;
+}
+.tab {
+  display: flex;
+  flex-direction: column;
+}
+.tablink {
+  background-color: bisque;
+  padding: 30px;
+  height: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3ms;
+  border: none;
+}
+.content {
+  display: none;
+  background-color: beige;
+  padding: 100px;
+  border-radius: 5px;
+  border: 1px;
+  margin-top: 10px;
+}
+.content.active {
+  display: block;
+}

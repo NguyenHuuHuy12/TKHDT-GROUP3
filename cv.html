@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nguyen Huu Huy - CV</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9; /* Màu nền xám nhạt */
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 800px;
+        background-color: white; /* Màu nền trắng cho phần chính */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px; /* Tạo khoảng cách giữa các cột */
+      }
+      .left-column {
+        width: 35%;
+        background-color: #f7f7f7; /* Màu xám nhạt cho cột bên trái */
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .right-column {
+        width: 65%;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .header img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+      h1 {
+        color: #333;
+        font-size: 28px;
+        margin: 0;
+      }
+      p.subtitle {
+        color: #666;
+        font-size: 16px;
+      }
+      .info,
+      .section {
+        margin-bottom: 25px;
+      }
+      .info h3,
+      .section h2 {
+        border-bottom: 2px solid #555;
+        padding-bottom: 5px;
+        color: #444;
+      }
+      .info div,
+      .section ul {
+        margin-top: 10px;
+      }
+      .section ul {
+        padding-left: 20px;
+        list-style-type: square;
+      }
+      .section ul li {
+        margin-bottom: 10px;
+      }
+      footer {
+        text-align: center;
+        margin-top: 30px;
+      }
+      footer p {
+        color: #555;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto 0;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .home-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        background-color: aquamarine;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <script>
+    function gotoHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+  <body>
+    <header>
+      <!-- Home button moved to top-left corner -->
+      <button class="home-btn" onclick="gotoHome()">Home</button>
+    </header>
+    <div class="container">
+      <!-- Cột bên trái -->
+      <div class="left-column">
+        <img src= />
+        <div class="info">
+          <h3>Thông Tin Liên Hệ</h3>
+          <p><strong>Địa chỉ:</strong> Trường Đại học Nông Lâm TPHCM</p>
+          <p><strong>Email:</strong> huylmao@gmail.com</p>
+          <p><strong>Điện thoại:</strong> +84 968 776 425</p>
+        </div>
+        <div class="info">
+          <h3>Thông Tin Cá Nhân</h3>
+          <p><strong>Ngày sinh:</strong> 12-09-2005</p>
+          <p><strong>Quốc tịch:</strong> Việt Nam</p>
+        </div>
+      </div>
+
+      <!-- Cột bên phải -->
+      <div class="right-column">
+        <div class="header">
+          <h1>Nguyễn Hữu Huy</h1>
+          <p class="subtitle">Thực Tập Sinh Phát Triển Ứng Dụng và Web</p>
+        </div>
+
+        <div class="section">
+          <h2>Giới Thiệu</h2>
+          <p>
+            Xin Chào! Tôi là Huy. Tôi có kĩ năng cho Web Developer 1 năm. Tôi có
+            kiến thức về front-end và back-end.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Học Vấn</h2>
+          <ul>
+            <li><strong>Đại học:</strong> Trường Đại học Nông Lâm TPHCM</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Kỹ Năng</h2>
+          <ul>
+            <li>Có kĩ năng về Java, JavaScript, HTML, CSS</li>
+            <li>Có nhiều ý tưởng sáng tạo</li>
+            <li>Tích cực học thêm các loại ngôn ngữ khác</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Sở Thích</h2>
+          <ul>
+            <li>Viết Code</li>
+            <li>Chơi cầu lông</li>
+            <li>Chơi game</li>
+            <li>Học code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

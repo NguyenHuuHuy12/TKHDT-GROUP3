@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif, sans-serif;
+        margin: 0;
+        background-image: url(https://anhdephd.vn/wp-content/uploads/2022/03/download-hinh-nen-may-tinh-dep-full-hd-800x533.jpg);
+        background-size: 100%;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+      }
+
+      nav {
+        background-color: #444;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 19px;
+      }
+
+      nav a:hover {
+        color: #ffcc00;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+      .gotoHome {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        background-color: aquamarine;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <script>
+    function Login() {
+      window.location.href = "login.html";
+    }
+  </script>
+  <script>
+    function gotoHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+  <body>
+    <header>
+      <button
+        onclick="gotoHome()"
+        style="
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          padding: 10px;
+          background-color: aquamarine;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+        "
+      >
+        Home
+      </button>
+      <h1>Welcome to My Website</h1>
+      <button
+        onclick="Login()"
+        style="
+          position: absolute;
+          left: 15px;
+          padding: 10px;
+          background-color: aquamarine;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          margin-left: 94%;
+        "
+      >
+        Login
+      </button>
+    </header>
+
+    <nav>
+      <a href="cv.html">About</a>
+      <a href="lab1.html">Lab1</a>
+      <a href="lab2.html">Lab2</a>
+      <a href="lab3.html">Lab3</a>
+      <a href="lab4.html">Lab4</a>
+    </nav>
+    <footer>
+      <p>© 2024 My Website| @FaceBook.</p>
+    </footer>
+  </body>
+</html>
