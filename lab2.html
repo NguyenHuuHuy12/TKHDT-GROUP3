@@ -4,59 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: Arial, sans-serif;
         background-image: url(https://static.spacet.vn/image-resized/1024x10240_max/img/blog/2024-06-18/66715f7b1e4cb177fa8d81e0.webp);
-        padding: 20px;
-        background-size: 100%;
-      }
-      .dashboard-container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .filter-bar,
-      .search-bar {
-        margin-bottom: 20px;
-      }
-      select,
-      input[type="search"] {
-        padding: 10px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-      }
-      .exercise-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
       }
       .exercise-card {
         background-color: white;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 20px;
-        width: 300px;
         text-align: center;
-        position: relative;
-      }
-      .exercise-card h3 {
-        margin: 0;
-      }
-      .exercise-card .difficulty {
-        margin: 10px 0;
-      }
-      .exercise-card .status {
-        font-weight: bold;
-      }
-      .home-btn {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        padding: 10px;
-        background-color: aquamarine;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
       }
       .book-icon {
         font-size: 24px;
@@ -66,27 +31,37 @@
       }
     </style>
   </head>
-  <script
-    src="https://kit.fontawesome.com/e6d841051d.js"
-    crossorigin="anonymous"
-  ></script>
-  <script>
-    function gotoHome() {
-      window.location.href = "index.html";
-    }
-  </script>
   <body>
-    <header>
-      <!-- Home button moved to top-left corner -->
-      <button class="home-btn" onclick="gotoHome()">Home</button>
+    <header class="bg-dark text-white py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <button class="btn btn-success" onclick="gotoHome()">Home</button>
+        <h1 class="h3">Course Management</h1>
+        <button class="btn btn-primary" onclick="login()">Login</button>
+      </div>
     </header>
-    <div class="dashboard-container">
-      <h1>Available Exercises</h1>
+
+    <nav class="bg-secondary text-center py-2">
+      <a href="cv.html" class="text-white mx-2">About</a>
+      <a href="lab1.html" class="text-white mx-2">Lab1</a>
+      <a href="lab2.html" class="text-white mx-2">Lab2</a>
+      <a href="lab3.html" class="text-white mx-2">Lab3</a>
+      <a href="lab4.html" class="text-white mx-2">Lab4</a>
+      <a href="lab5.html" class="text-white mx-2">Lab5</a>
+      <a href="lab6.html" class="text-white mx-2">Lab6</a>
+      <a href="result.html" class="text-white mx-2">Result</a>
+    </nav>
+
+    <div class="container mt-5">
+      <h1 class="mb-4">Available Exercises</h1>
 
       <!-- Filter Bar -->
-      <div class="filter-bar">
-        <label for="language">Filter by Language: </label>
-        <select id="language" onchange="filterExercises()">
+      <div class="mb-3">
+        <label for="language" class="form-label">Filter by Language: </label>
+        <select
+          id="language"
+          class="form-select w-auto d-inline-block"
+          onchange="filterExercises()"
+        >
           <option value="all">All</option>
           <option value="c">C</option>
           <option value="python">Python</option>
@@ -95,121 +70,124 @@
       </div>
 
       <!-- Search Bar -->
-      <div class="search-bar">
-        <input type="search" placeholder="Search exercises..." />
+      <div class="mb-4">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Search exercises..."
+        />
       </div>
 
       <!-- Exercise List -->
-      <div class="exercise-list" id="exercise-list">
+      <div class="row" id="exercise-list">
         <!-- C Exercises -->
-        <div class="exercise-card c">
-          <i class="fa-regular fa-book-font" style="color: #74c0fc"></i>
-          <span class="book-icon">📖</span>
-          <h3>C Exercise 1</h3>
-          <p>Short description of C exercise 1.</p>
-          <p class="difficulty">Difficulty: Easy</p>
-          <p>Time limit: 30 minutes</p>
-          <p class="status">Status: Not Started</p>
+        <div class="col-md-4 mb-4">
+          <div class="exercise-card c">
+            <span class="book-icon">📖</span>
+            <h3>C Exercise 1</h3>
+            <p>Short description of C exercise 1.</p>
+            <p class="text-muted">Difficulty: Easy</p>
+            <p>Time limit: 30 minutes</p>
+            <p class="text-success">Status: Not Started</p>
+          </div>
         </div>
-        <div class="exercise-card c">
-          <span class="book-icon">📖</span>
-          <h3>C Exercise 2</h3>
-          <p>Short description of C exercise 2.</p>
-          <p class="difficulty">Difficulty: Medium</p>
-          <p>Time limit: 45 minutes</p>
-          <p class="status">Status: In Progress</p>
+
+        <div class="col-md-4 mb-4">
+          <div class="exercise-card c">
+            <span class="book-icon">📖</span>
+            <h3>C Exercise 2</h3>
+            <p>Short description of C exercise 2.</p>
+            <p class="text-muted">Difficulty: Medium</p>
+            <p>Time limit: 45 minutes</p>
+            <p class="text-warning">Status: In Progress</p>
+          </div>
         </div>
-        <div class="exercise-card c">
-          <span class="book-icon">📖</span>
-          <h3>C Exercise 3</h3>
-          <p>Short description of C exercise 3.</p>
-          <p class="difficulty">Difficulty: Hard</p>
-          <p>No time limit</p>
-          <p class="status">Status: Completed</p>
+
+        <div class="col-md-4 mb-4">
+          <div class="exercise-card c">
+            <span class="book-icon">📖</span>
+            <h3>C Exercise 3</h3>
+            <p>Short description of C exercise 3.</p>
+            <p class="text-muted">Difficulty: Hard</p>
+            <p>No time limit</p>
+            <p class="text-danger">Status: Completed</p>
+          </div>
         </div>
 
         <!-- Python Exercises -->
-        <div class="exercise-card python">
-          <span class="book-icon">📖</span>
-          <h3>Python Exercise 1</h3>
-          <p>Short description of Python exercise 1.</p>
-          <p class="difficulty">Difficulty: Easy</p>
-          <p>Time limit: 30 minutes</p>
-          <p class="status">Status: Not Started</p>
-        </div>
-        <div class="exercise-card python">
-          <span class="book-icon">📖</span>
-          <h3>Python Exercise 2</h3>
-          <p>Short description of Python exercise 2.</p>
-          <p class="difficulty">Difficulty: Medium</p>
-          <p>Time limit: 45 minutes</p>
-          <p class="status">Status: In Progress</p>
-        </div>
-        <div class="exercise-card python">
-          <span class="book-icon">📖</span>
-          <h3>Python Exercise 3</h3>
-          <p>Short description of Python exercise 3.</p>
-          <p class="difficulty">Difficulty: Hard</p>
-          <p>No time limit</p>
-          <p class="status">Status: Completed</p>
+        <div class="col-md-4 mb-4">
+          <div class="exercise-card python">
+            <span class="book-icon">📖</span>
+            <h3>Python Exercise 1</h3>
+            <p>Short description of Python exercise 1.</p>
+            <p class="text-muted">Difficulty: Easy</p>
+            <p>Time limit: 30 minutes</p>
+            <p class="text-success">Status: Not Started</p>
+          </div>
         </div>
 
-        <!-- Java Exercises -->
-        <div class="exercise-card java">
-          <img
-            src="https://fontawesome.com/icons/book-font?f=sharp&s=regular&sz=2xl&pc=%23FFD43B&sc=%23FFD43B"
-            alt=""
-          />
-          <h3>Java Exercise 1</h3>
-          <p>Short description of Java exercise 1.</p>
-          <p class="difficulty">Difficulty: Easy</p>
-          <p>Time limit: 30 minutes</p>
-          <p class="status">Status: Not Started</p>
+        <div class="col-md-4 mb-4">
+          <div class="exercise-card python">
+            <span class="book-icon">📖</span>
+            <h3>Python Exercise 1</h3>
+            <p>Short description of Python exercise 1.</p>
+            <p class="text-muted">Difficulty: Medium</p>
+            <p>Time limit: 30 minutes</p>
+            <p class="text-success">Status: Not Started</p>
+          </div>
         </div>
-        <div class="exercise-card java">
-          <span class="book-icon">📖</span>
-          <h3>Java Exercise 2</h3>
-          <p>Short description of Java exercise 2.</p>
-          <p class="difficulty">Difficulty: Medium</p>
-          <p>Time limit: 45 minutes</p>
-          <p class="status">Status: In Progress</p>
+
+        <div class="col-md-4 mb-4">
+          <div class="exercise-card python">
+            <span class="book-icon">📖</span>
+            <h3>Python Exercise 1</h3>
+            <p>Short description of Python exercise 1.</p>
+            <p class="text-muted">Difficulty: Hard</p>
+            <p>Time limit: 30 minutes</p>
+            <p class="text-success">Status: Not Started</p>
+          </div>
         </div>
-        <div class="exercise-card java">
-          <span class="book-icon">📖</span>
-          <h3>Java Exercise 3</h3>
-          <p>Short description of Java exercise 3.</p>
-          <p class="difficulty">Difficulty: Hard</p>
-          <p>No time limit</p>
-          <p class="status">Status: Completed</p>
-        </div>
+        <!-- Additional Python and Java Exercises ... -->
       </div>
     </div>
 
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <p>© 2024 My Website | @FaceBook.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Function to filter exercises based on the selected language
+      function gotoHome() {
+        window.location.href = "index.html";
+      }
+
+      function login() {
+        window.location.href = "login.html";
+      }
+
       function filterExercises() {
         const selectedLanguage = document.getElementById("language").value;
         const allExercises = document.querySelectorAll(".exercise-card");
 
         allExercises.forEach((exercise) => {
-          exercise.style.display = "none"; // Hide all exercises by default
+          exercise.style.display = "none";
         });
 
         if (selectedLanguage === "all") {
           allExercises.forEach((exercise) => {
-            exercise.style.display = "block"; // Show all exercises
+            exercise.style.display = "block";
           });
         } else {
           const selectedExercises = document.querySelectorAll(
             `.${selectedLanguage}`
           );
           selectedExercises.forEach((exercise) => {
-            exercise.style.display = "block"; // Show exercises of the selected language
+            exercise.style.display = "block";
           });
         }
       }
 
-      // Call the filterExercises function to display all exercises on initial load
       window.onload = filterExercises;
     </script>
   </body>

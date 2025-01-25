@@ -4,16 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Course Management System</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: Arial, sans-serif;
         background-color: #f4f4f9;
         margin: 0;
         padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+      }
+      header {
+        background-color: #343a40;
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+      }
+      nav {
+        background-color: #495057;
+        padding: 10px;
+      }
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      nav a:hover {
+        color: #ffc107;
+      }
+      footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        margin-top: 20px;
       }
       .container {
         max-width: 800px;
@@ -22,67 +49,47 @@
         border-radius: 8px;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        text-align: center;
-        color: #333;
-      }
-      .form-group {
-        margin-bottom: 15px;
+        margin: 20px auto;
       }
       .form-group label {
-        display: block;
-        margin-bottom: 5px;
         font-weight: bold;
       }
-      .form-group input,
-      .form-group textarea,
-      .form-group select {
-        width: 100%;
-        padding: 10px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-      }
-      .form-group textarea {
-        height: 100px;
-      }
-      .form-group input[readonly],
-      .form-group textarea[readonly] {
-        background-color: #f9f9f9;
-        cursor: not-allowed;
-      }
-      button {
-        padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
+      .btn {
         margin-right: 10px;
       }
-      button:hover {
-        background-color: #45a049;
-      }
-      .button-group {
-        text-align: center;
-      }
-      .form-group p {
-        color: #555;
-        margin-top: 10px;
+      #deleteConfirmation {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Course Management</h1>
+    <header>
+      <div class="d-flex justify-content-between align-items-center px-3">
+        <button class="btn btn-success" onclick="gotoHome()">Home</button>
+        <h1>Course Management</h1>
+        <button class="btn btn-primary" onclick="login()">Login</button>
+      </div>
+    </header>
 
+    <nav class="text-center">
+      <a href="cv.html">About</a>
+      <a href="lab1.html">Lab1</a>
+      <a href="lab2.html">Lab2</a>
+      <a href="lab3.html">Lab3</a>
+      <a href="lab4.html">Lab4</a>
+      <a href="lab5.html">Lab5</a>
+      <a href="lab6.html">Lab6</a>
+      <a href="result.html">Result</a>
+    </nav>
+
+    <div class="container">
       <!-- Create/Edit Course Form -->
       <form id="courseForm">
-        <!-- Course ID (Read-Only, Auto-generated) -->
-        <div class="form-group">
-          <label for="course_id">Course ID</label>
+        <div class="mb-3">
+          <label for="course_id" class="form-label">Course ID</label>
           <input
             type="text"
+            class="form-control"
             id="course_id"
             name="course_id"
             value="Auto-generated"
@@ -90,11 +97,11 @@
           />
         </div>
 
-        <!-- Course Name (Required) -->
-        <div class="form-group">
-          <label for="course_name">Course Name</label>
+        <div class="mb-3">
+          <label for="course_name" class="form-label">Course Name</label>
           <input
             type="text"
+            class="form-control"
             id="course_name"
             name="course_name"
             placeholder="Enter course name"
@@ -103,20 +110,27 @@
           />
         </div>
 
-        <!-- Course Description (Optional) -->
-        <div class="form-group">
-          <label for="course_description">Course Description</label>
+        <div class="mb-3">
+          <label for="course_description" class="form-label"
+            >Course Description</label
+          >
           <textarea
+            class="form-control"
             id="course_description"
             name="course_description"
             placeholder="Enter detailed description (optional)"
+            rows="3"
           ></textarea>
         </div>
 
-        <!-- Select Instructor (Drop-down/ Search) -->
-        <div class="form-group">
-          <label for="created_by">Instructor</label>
-          <select id="created_by" name="created_by" required>
+        <div class="mb-3">
+          <label for="created_by" class="form-label">Instructor</label>
+          <select
+            class="form-select"
+            id="created_by"
+            name="created_by"
+            required
+          >
             <option value="" disabled selected>Select an instructor</option>
             <option value="1">Instructor A</option>
             <option value="2">Instructor B</option>
@@ -124,11 +138,11 @@
           </select>
         </div>
 
-        <!-- Created At (Read-Only) -->
-        <div class="form-group">
-          <label for="created_at">Created At</label>
+        <div class="mb-3">
+          <label for="created_at" class="form-label">Created At</label>
           <input
             type="text"
+            class="form-control"
             id="created_at"
             name="created_at"
             value="Auto-generated"
@@ -136,11 +150,11 @@
           />
         </div>
 
-        <!-- Updated At (Read-Only) -->
-        <div class="form-group">
-          <label for="updated_at">Last Updated At</label>
+        <div class="mb-3">
+          <label for="updated_at" class="form-label">Last Updated At</label>
           <input
             type="text"
+            class="form-control"
             id="updated_at"
             name="updated_at"
             value="Auto-generated"
@@ -148,22 +162,41 @@
           />
         </div>
 
-        <!-- Action Buttons -->
-        <div class="button-group">
-          <button type="submit">Save Course</button>
-          <button type="button" onclick="confirmDelete()">Delete Course</button>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-success">Save Course</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            onclick="confirmDelete()"
+          >
+            Delete Course
+          </button>
         </div>
       </form>
 
       <!-- Confirmation Message for Deletion -->
-      <p id="deleteConfirmation" style="display: none; color: red">
-        Are you sure you want to delete this course?
-        <button onclick="deleteCourse()">Yes</button>
-        <button onclick="cancelDelete()">No</button>
-      </p>
+      <div id="deleteConfirmation" class="text-center mt-3">
+        <p class="text-danger">Are you sure you want to delete this course?</p>
+        <button class="btn btn-danger" onclick="deleteCourse()">Yes</button>
+        <button class="btn btn-secondary" onclick="cancelDelete()">No</button>
+      </div>
     </div>
 
+    <footer>
+      <p>© 2024 My Website | @FaceBook.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      function gotoHome() {
+        window.location.href = "index.html";
+      }
+
+      function login() {
+        window.location.href = "login.html";
+      }
+
       function confirmDelete() {
         document.getElementById("deleteConfirmation").style.display = "block";
       }
@@ -173,22 +206,9 @@
       }
 
       function deleteCourse() {
-        // Simulate course deletion action
         alert("Course deleted successfully.");
         document.getElementById("deleteConfirmation").style.display = "none";
       }
-      <button
-        onclick="window.history.back()"
-        style="
-          padding: 20px 20px;
-          background-color: #4caf50;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-        "
-      >
-        <-Back</button>
     </script>
   </body>
 </html>
